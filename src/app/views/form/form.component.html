@@ -1,0 +1,62 @@
+<div fxLayout="column" fxLayoutAlign="start center" class="mb-2" [class.gt-sm]="'mt-2'" fxFlex.lt-md="90"
+  fxFlexOffset.lt-md="5" fxFlex="30" fxFlexOffset="35">
+
+  <div class="mt-1 mb-0 pb-0 text-center">
+    <a (click)="back()" class="pointer none-style" fxLayoutAlign="start center">
+      <mat-icon>chevron_left</mat-icon>
+      <span>Volver</span>
+    </a>
+  </div>
+  <div class="border p-1 border-radius my-1">
+    <div class="my-2 text-center">
+      <h4>Suscribite a nuestro Newsletter</h4>
+    </div>
+    <p class="text-center">Complete los campos solicitados para confirmar su suscripción
+    </p>
+
+    <form [formGroup]="subscribeForm" class="signup4-form grey-100 p-05" (ngSubmit)="submitForm()">
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="mail" type="text" name="mail" placeholder="" required />
+        <mat-error *ngIf="subscribeForm.controls['mail'].hasError('required')">Dato
+          obligatorio</mat-error>
+        <mat-error *ngIf="subscribeForm.controls['mail'].hasError('email')">Formato de email no válido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>DNI</mat-label>
+        <input matInput formControlName="dni" type="text" name="dni" placeholder="" required />
+        <mat-error *ngIf="subscribeForm.controls['dni'].hasError('required')">Dato
+          obligatorio</mat-error>
+        <mat-error *ngIf="subscribeForm.controls['dni'].hasError('minlength')">El DNI debe contener al menos 7
+          caracteres.</mat-error>
+        <mat-error *ngIf="subscribeForm.controls['dni'].hasError('pattern')">El DNI debe contener solo
+          números.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Telefono</mat-label>
+        <input matInput formControlName="telefono" type="text" name="telefono" placeholder="(299) 1234567" required
+          [mask]="'(000) 0000000'" />
+        <mat-hint align="end">Ej: (299) 1234567</mat-hint>
+        <mat-error *ngIf="subscribeForm.controls['telefono'].hasError('required')">Dato
+          obligatorio</mat-error>
+        <mat-error *ngIf="subscribeForm.controls['telefono'].hasError('pattern')">El Telefono debe contener solo
+          números.</mat-error>
+      </mat-form-field>
+
+      <mat-error fxLayout="column" *ngIf="error" class="p-05" fxLayoutAlign="center center" [innerHTML]="errorMsg">
+      </mat-error>
+
+      <div fxLayout="row wrap" fxLayoutAlign="center center" class="mt-1 mb-2">
+        <button class="full-width" type="submit" color="primary" mat-raised-button
+          [disabled]="enviando || subscribeForm.invalid">
+          <span *ngIf="!enviando">ENVIAR</span>
+          <mat-spinner *ngIf="enviando" color="accent" diameter="20">
+          </mat-spinner>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

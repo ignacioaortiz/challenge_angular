@@ -1,0 +1,13 @@
+<h1 mat-dialog-title class="text-center">¡Suscripción confirmada con Exito!</h1>
+<div mat-dialog-content fxLayout="column" fxLayoutAlign="start stretch">
+  <p>Gracias por suscribirse a nuestro newsletter.</p>
+  <p>Los datos ingresados son:</p>
+  <ul>
+    <li>Email: <b>{{data.mail}}</b></li>
+    <li>DNI: <b>{{data.dni}}</b></li>
+    <li>Teléfono: <b>{{data.telefono}}</b></li>
+  </ul>
+</div>
+<div mat-dialog-actions fxLayoutAlign="center center">
+  <button mat-raised-button mat-dialog-close cdkFocusInitial>Cerrar</button>
+</div>
