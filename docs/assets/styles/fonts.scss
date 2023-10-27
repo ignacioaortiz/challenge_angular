@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "OpenSans";
+  src: local("OpenSans"), local("OpenSans"),
+    url("../typography/Open_Sans/OpenSans-Regular.ttf");
+}
+@font-face {
+  font-family: "OpenSansBold";
+  src: local("OpenSans"), local("OpenSans"),
+    url("../typography/Open_Sans/OpenSans-Bold.ttf");
+}
+
+body {
+  font-family: "OpenSans" !important;
+  color: #333333;
+
+  b,
+  h2 {
+    font-family: "OpenSansBold" !important;
+  }
+}
