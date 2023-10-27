@@ -60,7 +60,7 @@ export class FormComponent {
 
   openDialog(mail: string, dni: number, telefono: number): void {
     this.dialog.open(DialogComponent, {
-      width: '400px',
+      width: '450px',
       data: {
         mail,
         dni,
